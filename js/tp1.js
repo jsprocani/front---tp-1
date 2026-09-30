@@ -49,8 +49,29 @@ function exo1(limit) {
 // Exercice 2
 function exo2_1() {
     "use strict";
+    /*  1.
+        - Number("A")   -> NaN
+        - 2 + "12"      -> 212
+        - 2 + (+"12")   -> 14
+        - (+"A")        -> NaN
+        - 2 * "12"      -> 24
+        - 2 * "A"       -> NaN
+        - 1/0           -> Infinity
+        - 1/-0          -> -Infinity
 
-    // TODO regarder le résultat des calculs de nombres
+        2.
+        - NaN === NaN   -> false
+        - NaN !== NaN   -> true
+        - isNaN(NaN)    -> true
+
+        3. undefined
+
+        4.
+        x = null        y = null        - x === y -> true  | x == y -> true
+        x = null        y = undefined   - x === y -> false | x == y -> true
+        x = undefined   y = null        - x === y -> false | x == y -> true
+        x = undefined   y = undefined   - x === y -> true  | x == y -> true
+     */
 }
 
 function exo2_2() {
