@@ -49,8 +49,8 @@ function exo1(limit) {
 // Exercice 2
 function exo2_1() {
     "use strict";
-    /*  1.
-        - Number("A")   -> NaN
+    window.console.log("Exercice 2.1");
+    /*  - Number("A")   -> NaN
         - 2 + "12"      -> 212
         - 2 + (+"12")   -> 14
         - (+"A")        -> NaN
@@ -58,42 +58,32 @@ function exo2_1() {
         - 2 * "A"       -> NaN
         - 1/0           -> Infinity
         - 1/-0          -> -Infinity
-
-        2.
-        - NaN === NaN   -> false
-        - NaN !== NaN   -> true
-        - isNaN(NaN)    -> true
-
-        3. undefined
-
-        4.
-        x = null        y = null        - x === y -> true  | x == y -> true
-        x = null        y = undefined   - x === y -> false | x == y -> true
-        x = undefined   y = null        - x === y -> false | x == y -> true
-        x = undefined   y = undefined   - x === y -> true  | x == y -> true
      */
 }
 
 function exo2_2() {
     "use strict";
     window.console.log("Exercice 2.2");
-
-    // TODO regarder le résultat des opérations avec NaN
+    /*  - NaN === NaN   -> false
+        - NaN !== NaN   -> true
+        - isNaN(NaN)    -> true
+     */
 }
 
 function exo2_3() {
     "use strict";
     window.console.log("Exercice 2.3");
-
-    // TODO regarder la valeur d'une variable non initialisée
+    // undefined
 }
 
 function exo2_4() {
     "use strict";
-
     window.console.log("Exercice 2.4");
-
-    // TODO regarder la différence entre null et undefined
+    /*  x = null        y = null        - x === y -> true  | x == y -> true
+        x = null        y = undefined   - x === y -> false | x == y -> true
+        x = undefined   y = null        - x === y -> false | x == y -> true
+        x = undefined   y = undefined   - x === y -> true  | x == y -> true
+     */
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -114,43 +104,52 @@ function exo3() {
 
     appendText("Exercice 3");
     var list = [1, 2, 4];
-    // TODO camlListOfArray
+    appendText(camlListOfArray(list) === "[1; 2; 4]")
 
     var palindromes = ["", "a", "BB", "BOB", "ESOPERESTEICIETSEREPOSE"];
     var nonPalindromes = ["Bob", "BABA"];
-    // TODO estPalindrome
+    palindromes.forEach((word) => appendText(estPalindrome(word)))
 
     var esop = "ESOPERESTEICIETSEREPOSE"
-    // TODO listeOccurrences
+    nonPalindromes.forEach((word) => appendText(estPalindrome(word)))
 
     var testsEmail = ["a@b.fr", "john.doe@firm.co.uk", "somebody@domain"];
-    // TODO estEmail
-
-    appendText("TODO : ajoutez le résulat de chaque opération");
+    testsEmail.forEach((email) => appendText(estEmail(email)))
 }
 
 function camlListOfArray(tableau) {
     "use strict";
-    // TODO
-    return "TODO";
+    let texte = "["
+    let n = tableau.length
+    for (let i = 0; i < n - 1; i++)
+        texte += tableau[i] + "; "
+    texte += tableau[n - 1] + "]"
+    return texte
 }
 
 function estPalindrome(texte) {
     "use strict";
-    // TODO
-    return true;
+    let n = texte.replaceAll(" ", "").length
+    if (n < 2) return true
+    let i = 0
+    while (i < n / 2 - 1 && texte.charAt(i) === texte.charAt(n - i - 1)) i++
+    return texte.charAt(i) === texte.charAt(n - i - 1)
 }
 
 function listeOccurrences(search, texte) {
     "use strict";
-    // TODO
-    return [];
+    let list
+    for (let i = 0; i < texte.length; i++) {
+        if (search === texte.charAt(i)) {
+            list += texte.indexOf(i)
+        }
+    }
 }
 
 function estEmail(texte) {
     "use strict";
-    // TODO
-    return true;
+    let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(texte)
 }
 
 //////////////////////////////////////////////////////////////////////
