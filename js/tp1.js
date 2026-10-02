@@ -120,7 +120,7 @@ function exo3() {
 function camlListOfArray(tableau) {
     "use strict";
     let texte = "["
-    let n = tableau.length
+    const n = tableau.length
     for (let i = 0; i < n - 1; i++)
         texte += tableau[i] + "; "
     texte += tableau[n - 1] + "]"
@@ -129,7 +129,7 @@ function camlListOfArray(tableau) {
 
 function estPalindrome(texte) {
     "use strict";
-    let n = texte.replaceAll(" ", "").length
+    const n = texte.replaceAll(" ", "").length
     if (n < 2) return true
     let i = 0
     while (i < n / 2 - 1 && texte.charAt(i) === texte.charAt(n - i - 1)) i++
@@ -148,7 +148,7 @@ function listeOccurrences(search, texte) {
 
 function estEmail(texte) {
     "use strict";
-    let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return regex.test(texte)
 }
 
@@ -158,8 +158,29 @@ function estEmail(texte) {
 function exo4() {
     "use strict";
     appendText("Exercice 4");
-    // TODO
-    appendText("TODO : ajoutez le résulat de chaque opération")
+    appendText(robotTest === robotTest2)
+    appendText(robotTest.equals(robotTest2))
+    appendText(robot2Test.getNom())
 }
 
+function Robot(nom) {
+    "use strict";
+    this.nom = nom
+    this.equals = function (robot) {
+        return this.nom === robot.nom
+    }
+}
 
+function Robot2(nom) {
+    "use strict";
+    const _nom = nom;
+    const my = {};
+    my.getNom = function () {
+        return _nom
+    }
+    return my
+}
+
+let robotTest = new Robot("I, robot")
+let robotTest2 = new Robot("I, robot")
+let robot2Test =  Robot2("I, robot")
